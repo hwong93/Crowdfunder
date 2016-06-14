@@ -1,28 +1,7 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+CrowdFundr is a web app that is supposed to be a clone of KickStarter. This was a bitmaker group project. Users can select different donations for rewards for projects that they want to support. This project was supposed to help solidify multi-forms, validations, models, controllers and Javascript/AJAX concepts. 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+==Things to add:
+1. Definitely need to clean up the CSS
+2. Allow users to donate a custom amount but also receive the reward it falls into
