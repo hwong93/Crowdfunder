@@ -15,13 +15,12 @@
 
 <div class="project-info">
   <h2>Project Information</h2>
-
   <%= form_for @project do |f| %>
     <% if @project.errors.any? %>
       <% @project.errors.full_messages.each do |message|%>
       <li><%= message %></li>
+      <% end %>
     <% end %>
-  <% end %>
 
   <div class="title-form">
     <%= f.text_field :name, placeholder: "Project Title" %>
@@ -61,6 +60,6 @@
   <div class="new-project-button">
     <%= f.submit %>
   </div>
-<% end %>
+  <% end %>
 
 </div>

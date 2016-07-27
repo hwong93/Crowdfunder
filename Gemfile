@@ -31,6 +31,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'cocoon'
 
+# trying out foundation
+gem 'foundation-rails'
+
 gem 'sorcery'
 
 # Use Capistrano for deployment

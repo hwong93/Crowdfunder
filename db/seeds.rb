@@ -27,7 +27,8 @@ project1 = Project.create!({
   end_date: Date.today+2.weeks,
   funding_goal: 1000,
   media_url: "www.hello.com"
-  })
+})
+
 
 reward1 = Reward.create({
   name: "Level one",
