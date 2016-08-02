@@ -4,6 +4,11 @@
 //
 
 $(document).on('ready page:load', function() {
+  if (top.location.pathname === '/'){
+    $('#nav').css('background-color', 'rgba(255,255,255, 0)')
+    $('#nav').removeClass('nav');
+  }
+
   $('#search-form').submit(function(ev) {
     ev.preventDefault();
 
@@ -17,6 +22,7 @@ $(document).on('ready page:load', function() {
       $('#projects').html(data);
     });
   });
+
 
   $('.new-pledge').on('click', function(eventObject) {
     eventObject.preventDefault();
@@ -39,3 +45,16 @@ $(document).on('ready page:load', function() {
     });
   })
 });
+  if (top.location.pathname === '/'){
+    $(window).on('scroll', function(){
+        console.log($(this).scrollTop());
+        if ($(this).scrollTop() >= 630){
+            $('#nav').css('background-color', 'rgba(255,255,255, 1)')
+              $('#nav').addClass('nav');
+        }
+        else if ($(this).scrollTop() < 630){
+            $('#nav').css('background-color', 'rgba(255,255,255, 0)')
+              $('#nav').removeClass('nav');
+        }
+    })
+  }

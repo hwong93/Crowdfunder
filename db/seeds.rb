@@ -26,7 +26,25 @@ project1 = Project.create!({
   description: "So good",
   end_date: Date.today+2.weeks,
   funding_goal: 1000,
-  media_url: "www.hello.com"
+  media_url: "http://placekitten.com/200/300"
+})
+
+Project.create!({
+  owner_id: User.find_by(name: "Natalie").id,
+  name: "Another",
+  description: "So good",
+  end_date: Date.today+2.weeks,
+  funding_goal: 1000,
+  media_url: "http://placekitten.com/200/300"
+})
+
+Project.create!({
+  owner_id: User.find_by(name: "Natalie").id,
+  name: "Project 2",
+  description: "So good",
+  end_date: Date.today+2.weeks,
+  funding_goal: 1000,
+  media_url: "http://placekitten.com/200/300"
 })
 
 
