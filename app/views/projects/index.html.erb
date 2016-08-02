@@ -1,9 +1,6 @@
-
-    <!-- <h1>Gimme Yo Money</h1> -->
-  <!-- <div class = "gym-top-slider">
-    <img src="Cover_2560x600.png" />
-    <button id= gym-button>TAKE A LOOK</button>
-  </div> -->
+  <% content_for :navbar do %>
+     <%= render 'navbar_homepage' %>
+  <% end %>
 
   <div class="splash-image">
     <div class="row instruct">
@@ -17,7 +14,7 @@
 
   <div class="index-container">
     <div class="text-center featured">
-      <h1>Featured Projects!</h1>
+      <h1>Featured Projects</h1>
     </div>
     <div class="">
       <%= render @projects %>

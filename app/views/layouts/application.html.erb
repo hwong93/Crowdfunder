@@ -12,44 +12,50 @@
   </head>
 
   <body>
-    <div data-sticky-container  >
-      <div class="top-bar stacked-for-small sticky nav" data-sticky data-options="marginTop:0;" style="width:100%" data-top-anchor="1" data-btm-anchor="content:bottom" id="nav">
-        <div class="top-bar-title">
-          <%= link_to (image_tag('crowdfunder-logo.png', class: 'logo')), root_url %>
-        </div>
-        <div class="top-bar-left">
-          <ul class="menu">
+
+    <% if content_for?(:navbar) %>
+      <%= yield(:navbar) %>
+    <% else %>
+      <div data-sticky-container  >
+        <div class="top-bar stacked-for-small sticky nav" data-sticky data-options="marginTop:0;" style="width:100%" data-top-anchor="1" data-btm-anchor="content:bottom" id="nav">
+          <div class="top-bar-title">
+            <%= link_to (image_tag('crowdfunder-logo.png', class: 'logo')), root_url %>
+          </div>
+          <div class="top-bar-left">
+            <ul class="menu">
+                <% if current_user %>
+                <li><%= link_to 'Create Project', new_project_path %></li>
+                <% else %>
+                <li><%= link_to 'Create Project', login_path, alert: "Must Log in to Create a Project" %></li>
+                <% end %>
               <% if current_user %>
-              <li><%= link_to 'Create Project', new_project_path %></li>
+                <li><%= link_to "Profile", user_path(current_user) %></li>
+                <li><%= link_to "Logout", :logout, method: :delete %></li>
               <% else %>
-              <li><%= link_to 'Create Project', login_path, alert: "Must Log in to Create a Project" %></li>
+                <li><%= link_to "Login", :login %></li>
+                <li><%= link_to "Sign Up", new_user_path %></li>
               <% end %>
-            <% if current_user %>
-              <li><%= link_to "Profile", user_path(current_user) %></li>
-              <li><%= link_to "Logout", :logout, method: :delete %></li>
-            <% else %>
-              <li><%= link_to "Login", :login %></li>
-              <li><%= link_to "Sign Up", new_user_path %></li>
-            <% end %>
-          </ul>
-        </div>
+            </ul>
+          </div>
 
 
-        <div class="top-bar-right" >
-          <ul class="menu">
-            <li>
-              <%= form_for projects_path, method: :get, authentication: false, id: 'search-form' do %>
-              <%= search_field_tag :search, params[:search], placeholder: 'Find Projects' %>
-            </li>
-            <li>
-              <%= submit_tag "Search", class: 'button'%>
-            </li>
-              <% end %>
-          </ul>
+          <div class="top-bar-right" >
+            <ul class="menu">
+              <li>
+                <%= form_for projects_path, method: :get, authentication: false, id: 'search-form' do %>
+                <%= search_field_tag :search, params[:search], placeholder: 'Find Projects' %>
+              </li>
+              <li>
+                <%= submit_tag "Search", class: 'button'%>
+              </li>
+                <% end %>
+            </ul>
 
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
+
 
 
 

@@ -4,10 +4,13 @@
 //
 
 $(document).on('ready page:load', function() {
-  if (top.location.pathname === '/'){
-    $('#nav').css('background-color', 'rgba(255,255,255, 0)')
-    $('#nav').removeClass('nav');
-  }
+  // if (top.location.pathname === '/'){
+  //   $('#nav').css('background-color', 'rgba(255,255,255, 0)')
+  //   $('#nav').removeClass('nav');
+  // }else{
+  //   $('#nav').css('background-color', 'rgba(255,255,255, 1)')
+  //   $('#nav').addClass('nav');
+  // }
 
   $('#search-form').submit(function(ev) {
     ev.preventDefault();
@@ -45,16 +48,16 @@ $(document).on('ready page:load', function() {
     });
   })
 });
+
+// Only on the homepage do this animation
   if (top.location.pathname === '/'){
     $(window).on('scroll', function(){
         console.log($(this).scrollTop());
         if ($(this).scrollTop() >= 630){
-            $('#nav').css('background-color', 'rgba(255,255,255, 1)')
-              $('#nav').addClass('nav');
+            $('.homepage-nav').attr('id','nav');
         }
         else if ($(this).scrollTop() < 630){
-            $('#nav').css('background-color', 'rgba(255,255,255, 0)')
-              $('#nav').removeClass('nav');
+          $('.homepage-nav').removeAttr('id','nav');
         }
     })
   }
