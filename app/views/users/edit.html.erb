@@ -1,23 +1,26 @@
-<h1>Profile Edit</h1>
+<div class="container">
+  <h1>Profile Edit</h1>
 
-<%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-    <% @user.errors.full_messages.each do |message|%>
-      <li><%= message %></li>
+  <%= form_for @user do |f| %>
+    <% if @user.errors.any? %>
+      <% @user.errors.full_messages.each do |message|%>
+        <li><%= message %></li>
+      <% end %>
     <% end %>
+
+    <div class="fields">
+      <%= f.label :name %><br/>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="fields">
+      <%= f.label :email %><br/>
+      <%= f.text_field :email %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit class: 'button small'%>
+    </div>
   <% end %>
 
-  <div class="fields">
-    <%= f.label :name %><br/>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="fields">
-    <%= f.label :email %><br/>
-    <%= f.text_field :email %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

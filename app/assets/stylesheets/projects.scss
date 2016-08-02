@@ -1,23 +1,35 @@
 // Place all the styles related to the projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-*,
-*:before,
-*:after {
+html {
+  height: 100%;
   box-sizing: border-box;
 }
 
-html {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #212121;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 body {
+  position: relative;
   margin: 0;
+  min-height: 100%;
+  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 h2{
   color: white;
+  position: relative;
+}
+
+.container{
+  margin-top: 80px;
+  width:80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 200px;
 }
 // Navbar
 #nav{
@@ -45,7 +57,7 @@ h2{
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background-position: 50% 100%;
   display:block;
@@ -73,8 +85,8 @@ h2{
 
 .project{
   height: 440px;
-  width:32.33333%;
-  padding: 0px 10px;
+  width: 32.33333%;
+  padding: 0px 5px;
   display: inline-block;
   margin: 0;
 }
@@ -89,6 +101,15 @@ h2{
 
 .pads{
   padding: 5px;
+}
+.proj-title{
+  height: 10%;
+}
+.proj-desc{
+  height: 30%;
+}
+.proj-more{
+  height: 10%;
 }
 //
 .gym-top-slider{
@@ -126,13 +147,12 @@ h2{
 }
 
 
-.gym-footer{
-  background-color: rgba(241, 240, 240, 0.5);
-  color: #e7b63f;
-  height: 2.5rem;
-  line-height: 2.5rem;
-  text-align: center;
+.footer{
+  padding: 1rem;
+  background-color: rgba(33, 153, 232, 0.5);
+  height: 200px;
   width: 100%;
+  text-align: center;
 }
 
 

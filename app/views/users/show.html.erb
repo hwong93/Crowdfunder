@@ -1,31 +1,33 @@
-<h1>Users#show</h1>
-<%= link_to "edit", edit_user_path%>
-  <li><%= current_user.name%></li>
-  <li><%= current_user.email%></li>
+<div class="container">
+  <h1>Users#show</h1>
+  <%= link_to "edit", edit_user_path%>
+    <li><%= current_user.name%></li>
+    <li><%= current_user.email%></li>
 
-<h3>Your Projects</h3>
-  <% if current_user.owned_projects.any? %>
+  <h3>Your Projects</h3>
+    <% if current_user.owned_projects.any? %>
+      <ul>
+      <% current_user.owned_projects.map do |proj|%>
+          <li><%= proj.name %></li>
+          <li><%= proj.description %></li>
+          <li><%= proj.end_date %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <li>YOU GOT NO PROJECTS</li>
+    <% end %>
+
+  <h3>REWARDS</h3>
+  <% if current_user.rewards.any? %>
     <ul>
-    <% current_user.owned_projects.map do |proj|%>
-        <li><%= proj.name %></li>
-        <li><%= proj.description %></li>
-        <li><%= proj.end_date %></li>
+      <% current_user.rewards.map do |rew| %>
+        <li><%= link_to rew.project.name, project_path(rew.project) %></li>
+        <li><%= rew.name %></li>
+        <li><%= rew.amount %></li>
+        <li><%= rew.description %></li>
       <% end %>
     </ul>
   <% else %>
-    <li>YOU GOT NO PROJECTS</li>
+    <li>NO REWARDS</li>
   <% end %>
-
-<h3>REWARDS</h3>
-<% if current_user.rewards.any? %>
-  <ul>
-    <% current_user.rewards.map do |rew| %>
-      <li><%= link_to rew.project.name, project_path(rew.project) %></li>
-      <li><%= rew.name %></li>
-      <li><%= rew.amount %></li>
-      <li><%= rew.description %></li>
-    <% end %>
-  </ul>
-<% else %>
-  <li>NO REWARDS</li>
-<% end %>
+</div>

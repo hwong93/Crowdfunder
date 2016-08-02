@@ -1,30 +1,30 @@
+<div class="container">
+  <h1><%= @project.name %></h1>
 
+  <div class="funds-raised">
+    <div id="total_funds" data="<%=@project.total_moneh %>">
+  </div>
+  <div id="project-funding-status">
+    <%= render partial: 'project_total_money' %>
+  </div>
+  <div id="project-backed">
+  </div>
+  <img src="<%= @project.media_url %>" alt="" />
+  <p><%= @project.owner.name %></p>
+  <h2><%= @project.funding_goal%></h2>
+  <h2><%= @project.end_date %></h2>
+  <div>
+    <h2><%= @project.date_left %> Days Left!</h2>
+  </div>
+  <p>  <%= @project.description %>
+  </p>
 
+  <p>
+    <%= render @project.rewards %>
+  </p>
 
-<h1><%= @project.name %></h1>
+  <% if current_user && current_user.id == @project.owner_id %>
+  <%= link_to 'Edit', edit_project_path(@project) %>
+  <% end %>
 
-<div class="funds-raised">
-  <div id="total_funds" data="<%=@project.total_moneh %>">
 </div>
-<div id="project-funding-status">
-  <%= render partial: 'project_total_money' %>
-</div>
-<div id="project-backed">
-</div>
-<img src="<%= @project.media_url %>" alt="" />
-<p><%= @project.owner.name %></p>
-<h2><%= @project.funding_goal%></h2>
-<h2><%= @project.end_date %></h2>
-<div>
-  <h2><%= @project.date_left %> Days Left!</h2>
-</div>
-<p>  <%= @project.description %>
-</p>
-
-<p>
-  <%= render @project.rewards %>
-</p>
-
-<% if current_user && current_user.id == @project.owner_id %>
-<%= link_to 'Edit', edit_project_path(@project) %>
-<% end %>
