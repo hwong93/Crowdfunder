@@ -49,6 +49,7 @@ h2{
   position: fixed;
   top: 0;
   display: block;
+  z-index: 1;
 
 }
 
@@ -117,6 +118,11 @@ h2{
 .proj-more{
   height: 10%;
 }
+
+
+
+
+
 //
 .gym-top-slider{
   width: 100%;
