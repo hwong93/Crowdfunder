@@ -26,6 +26,13 @@ $(document).on('ready page:load', function() {
     });
   });
 
+  $('.item').on('mouseenter', function(ev){
+    $(this).addClass('border-bottom');
+  });
+  $('.item').on('mouseleave', function(ev){
+    $(this).removeClass('border-bottom');
+  });
+
 
   $('.new-pledge').on('click', function(eventObject) {
     eventObject.preventDefault();

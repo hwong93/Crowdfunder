@@ -39,6 +39,12 @@ h2{
   background-color: rgba(255,255,255, 1);
 }
 
+.border-bottom{
+  border-bottom: 3px solid blue;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
 .top-bar {
   position: fixed;
   top: 0;
