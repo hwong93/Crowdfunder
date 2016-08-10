@@ -55,6 +55,22 @@ reward1 = Reward.create({
   project_id: Project.find_by(name: "Fred's not here").id
 })
 
+Reward.create({
+  name: "Level two",
+  description: "intermediate level",
+  amount: 100,
+  project_id: Project.find_by(name: "Fred's not here").id
+})
+
+Reward.create({
+  name: "Level two",
+  description: "expert level",
+  amount: 1000,
+  project_id: Project.find_by(name: "Fred's not here").id
+})
+
+
+
 pledge = Pledge.new({
   backer_id: User.find_by(name: "Fred").id,
   reward_id: Reward.find_by(name: "Level one").id

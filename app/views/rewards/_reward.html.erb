@@ -1,9 +1,11 @@
-<h1><%= reward.name %> </h1>
-<p>
-  <%= reward.description %>
-</p>
-<p>
-  <%= reward.amount %>
-</p>
+<div class="rewards">
+  <h2><%= reward.name %> </h2>
+  <p>
+    <%= reward.description %>
+  </p>
+  <p>
+    $<%= number_with_delimiter(reward.amount, delimiter: ',') %>
+  </p>
 
-<%= link_to "I WANT TO BACK IT!!!!", reward_pledges_path(reward), method: :post, class: "new-pledge" %>
+  <%= link_to "I WANT TO BACK IT!!!!", reward_pledges_path(reward), method: :post, class: "new-pledge" %>
+</div>

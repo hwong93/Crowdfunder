@@ -1,17 +1,12 @@
 <div class="project-info">
     <div class="title text-center">
       <h1><%= @project.name %></h1>
-      <p>By: <strong><%= @project.owner.name %></strong></p>
+      <p>By: <strong><%= link_to @project.owner.name, user_path(@project.owner) %></strong></p>
     </div>
 
     <div class="row">
       <div class="large-8 columns img-contain">
         <img src="<%= @project.media_url %>" alt="" class="proj-image"/>
-        <div class="proj-description">
-          <p>
-            <%= @project.description %>
-          </p>
-        </div>
       </div>
 
       <div class="large-4 columns">
@@ -23,11 +18,13 @@
         </div>
 
         <div id="project-backed">
-          <h2><%= @project.funding_goal%></h2>
+
+          <h2><%= @project.date_left %></h2>
+          <p>days left!</p>
+
           <h2><%= @project.end_date %></h2>
-          <div>
-            <h2><%= @project.date_left %> Days Left!</h2>
-          </div>
+          <p>is the last day!</p>
+
         </div>
       </div>
 
@@ -35,10 +32,23 @@
 </div>
 
 
-
+<div class="container">
+  <div class="row">
+    <div class="large-8 columns proj-description">
+      <h3>About this Project</h3>
       <p>
-        <%= render @project.rewards %>
+        <%= @project.description %>
       </p>
+    </div>
+    <div class="large-4 columns">
+      <h3>Rewards</h3>
+      <%= render @project.rewards %>
+    </div>
+  </div>
+</div>
+
+
+
 
 
 

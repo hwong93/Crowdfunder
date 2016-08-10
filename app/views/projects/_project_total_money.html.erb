@@ -1,4 +1,4 @@
-<h2>Project Funding Status</h2>
 <div id="project-total-money">
-  $<%= @project.total_moneh %> of $<%= @project.funding_goal %>
+  <h2>$<%= number_with_delimiter(@project.total_moneh, delimiter: ',') %></h2>
+  <p>pledged of $<%= number_with_delimiter(@project.funding_goal, delimiter: ',') %> goal!</p>
 </div>
