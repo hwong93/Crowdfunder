@@ -1,7 +1,11 @@
 <div class="rewards">
   <div class='back-this'>
-    <div class="back-it ">
-      <p>Back this Project!</p>
+    <div class="back-it new-pledge">
+      <% if current_user %>
+        <p>Back this Project!</p>
+      <% else %>
+        <p>Login to Back this Project!</p>
+      <% end %>
     </div>
   </div>
     <div class="rewards-info">

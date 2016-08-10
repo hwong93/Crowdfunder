@@ -41,7 +41,6 @@ $(document).on('ready page:load', function() {
       var child = this.children;
       $(child[0]).css('display', 'none');
     }
-
   );
 
   $('.new-pledge').on('click', function(eventObject) {

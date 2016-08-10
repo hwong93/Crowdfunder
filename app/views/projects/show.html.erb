@@ -19,7 +19,7 @@
 
         <div id="project-backed">
           <% if current_user %>
-            <% if current_user.projects.find(@project.id) %>
+            <% if current_user.projects.include?(@project) %>
               <h2>You've backed this project!</h2>
             <% else %>
               <%= render partial: 'project_dates' %>
