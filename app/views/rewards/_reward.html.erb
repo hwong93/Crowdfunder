@@ -1,11 +1,18 @@
 <div class="rewards">
-  <h2><%= reward.name %> </h2>
-  <p>
-    <%= reward.description %>
-  </p>
-  <p>
-    $<%= number_with_delimiter(reward.amount, delimiter: ',') %>
-  </p>
+  <div class='back-this'>
+    <div class="back-it ">
+      <p>Back this Project!</p>
+    </div>
+  </div>
+    <div class="rewards-info">
+      <h3><%= reward.name %> </h3>
+      <h3>
+        $<%= number_with_delimiter(reward.amount, delimiter: ',') %>
+      </h3>
+      <p>
+        <%= reward.description %>
+      </p>
 
-  <%= link_to "I WANT TO BACK IT!!!!", reward_pledges_path(reward), method: :post, class: "new-pledge" %>
+      <%= link_to "I WANT TO BACK IT!!!!", reward_pledges_path(reward), method: :post, class: "new-pledge" %>
+    </div>
 </div>

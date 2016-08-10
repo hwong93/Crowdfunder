@@ -12,7 +12,37 @@
 }
 
 .rewards {
-  background-color: tomato;
+  -webkit-box-shadow: 0px 6px 2px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 6px 2px -5px rgba(0,0,0,0.75);
+  box-shadow: 0px 6px 2px -5px rgba(0,0,0,0.75);
+  background-color: rgba(248, 249, 253, 1);
+  margin: 10px 0px;
+  overflow: hidden;
+  position: relative;
+
+}
+
+.rewards-info{
   padding: 10px;
-  margin-bottom: 10px;
+}
+
+.back-this{
+  position: absolute;
+  display: none;
+  background-color: green;
+  opacity: .9;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+}
+
+.back-it{
+  color: white;
+  position: absolute;
+  top: 48%;
+  width: 100%;
+  text-align: center;
 }

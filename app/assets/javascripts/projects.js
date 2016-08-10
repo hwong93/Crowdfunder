@@ -33,6 +33,16 @@ $(document).on('ready page:load', function() {
     $(this).removeClass('border-bottom');
   });
 
+  $('.rewards').hover(
+    function(){
+      var child = this.children;
+      $(child[0]).css('display', 'block');
+    }, function(){
+      var child = this.children;
+      $(child[0]).css('display', 'none');
+    }
+
+  );
 
   $('.new-pledge').on('click', function(eventObject) {
     eventObject.preventDefault();
