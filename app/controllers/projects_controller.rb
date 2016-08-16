@@ -68,7 +68,7 @@ class ProjectsController < ApplicationController
   def owner_login
     @project = Project.find(params[:id])
     unless @project.owner == current_user
-      redirect_to @project, alert: 'Get the fuck outta here'
+      redirect_to @project, alert: 'This is not you'
     end
   end
 end

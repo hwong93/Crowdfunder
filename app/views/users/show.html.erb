@@ -5,12 +5,16 @@
   </div>
   <%= link_to "edit", edit_user_path%>
 
-
   <h3>Your Projects</h3>
-    <% if @user.owned_projects.any? %>
-      <% @user.owned_projects.map do |proj|%>
-      <div>
-          <h4><%= link_to proj.name, project_path(proj) %></h4>
+  <% if @user.owned_projects.any? %>
+  <ul class="accordion" data-accordion>
+    <% @user.owned_projects.map do |proj|%>
+      <li class="accordion-item" data-accordion-item>
+        <a href="#" class="accordion-title">
+          <%= proj.name %>
+        </a>
+
+        <div class="accordion-content" data-tab-content>
           <div>
             <%= render partial: 'projects/project_total_money', :locals => {:proj => proj} %>
           </div>
@@ -22,29 +26,32 @@
           </div>
 
           <% if current_user.id === proj.owner_id %>
-            <div>
-              <%= link_to 'edit project', edit_project_path(proj) %>
-            </div>
+          <div>
+            <%= link_to 'edit project', edit_project_path(proj) %>
+          </div>
           <% end %>
         </div>
-      <% end %>
-    <% else %>
-      <li>No Projects</li>
+      </li>
+
     <% end %>
+  </ul>
+  <% else %>
+  <li>No Projects</li>
+  <% end %>
 
   <h3>REWARDS</h3>
   <% if current_user == @user %>
-    <% if @user.rewards.any? %>
-      <% @user.rewards.map do |rew| %>
-      <div>
-        <%= link_to rew.project.name, project_path(rew.project.id) %>
-        <p><%= rew.name %></p>
-        <p><%= rew.amount %></p>
-        <p><%= rew.description %></p>
-      </div>
-      <% end %>
-    <% else %>
-      <p>NO REWARDS</p>
-    <% end %>
+  <% if @user.rewards.any? %>
+  <% @user.rewards.map do |rew| %>
+  <div>
+    <%= link_to rew.project.name, project_path(rew.project.id) %>
+    <p><%= rew.name %></p>
+    <p><%= rew.amount %></p>
+    <p><%= rew.description %></p>
+  </div>
+  <% end %>
+<% else %>
+  <p>NO REWARDS</p>
+  <% end %>
   <% end %>
 </div>
