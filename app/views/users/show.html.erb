@@ -1,33 +1,50 @@
 <div class="container">
-  <h1>Users#show</h1>
+  <h1><%= @user.name %>'s Profile Page</h1>
+  <div>
+    <h4><%= @user.email%></h4>
+  </div>
   <%= link_to "edit", edit_user_path%>
-    <li><%= current_user.name%></li>
-    <li><%= current_user.email%></li>
+
 
   <h3>Your Projects</h3>
-    <% if current_user.owned_projects.any? %>
-      <ul>
-      <% current_user.owned_projects.map do |proj|%>
-          <li><%= proj.name %></li>
-          <li><%= proj.description %></li>
-          <li><%= proj.end_date %></li>
-        <% end %>
-      </ul>
+    <% if @user.owned_projects.any? %>
+      <% @user.owned_projects.map do |proj|%>
+      <div>
+          <h4><%= link_to proj.name, project_path(proj) %></h4>
+          <div>
+            <%= render partial: 'projects/project_total_money', :locals => {:proj => proj} %>
+          </div>
+          <div>
+            <h5>Description</h5>
+            <p><%= proj.description %></p>
+            <h5>End Date</h5>
+            <p><%= proj.end_date %></p>
+          </div>
+
+          <% if current_user.id === proj.owner_id %>
+            <div>
+              <%= link_to 'edit project', edit_project_path(proj) %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     <% else %>
-      <li>YOU GOT NO PROJECTS</li>
+      <li>No Projects</li>
     <% end %>
 
   <h3>REWARDS</h3>
-  <% if current_user.rewards.any? %>
-    <ul>
-      <% current_user.rewards.map do |rew| %>
-        <li><%= link_to rew.project.name, project_path(rew.project) %></li>
-        <li><%= rew.name %></li>
-        <li><%= rew.amount %></li>
-        <li><%= rew.description %></li>
+  <% if current_user == @user %>
+    <% if @user.rewards.any? %>
+      <% @user.rewards.map do |rew| %>
+      <div>
+        <%= link_to rew.project.name, project_path(rew.project.id) %>
+        <p><%= rew.name %></p>
+        <p><%= rew.amount %></p>
+        <p><%= rew.description %></p>
+      </div>
       <% end %>
-    </ul>
-  <% else %>
-    <li>NO REWARDS</li>
+    <% else %>
+      <p>NO REWARDS</p>
+    <% end %>
   <% end %>
 </div>

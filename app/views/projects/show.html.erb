@@ -14,21 +14,17 @@
           <div id="total_funds" data="<%=@project.total_moneh %>"></div>
         </div>
         <div id="project-funding-status">
-          <%= render partial: 'project_total_money' %>
+          <%= render partial: 'project_total_money', locals: {:proj => @project} %>
         </div>
 
         <div id="project-backed">
-          <% if current_user %>
-            <% if current_user.projects.include?(@project) %>
-              <h2>You've backed this project!</h2>
-            <% else %>
               <%= render partial: 'project_dates' %>
-            <% end %>
-          <% else %>
-              <%= render partial: 'project_dates' %>
+        </div>
+
+        <div id="backed">
+          <% if current_user && current_user.projects.include?(@project) %>
+            <h3>You've backed this project!</h3>
           <% end %>
-
-
         </div>
       </div>
 

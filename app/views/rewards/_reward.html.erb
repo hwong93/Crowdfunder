@@ -1,6 +1,6 @@
 <div class="rewards">
-  <div class='back-this'>
-    <div class="back-it new-pledge">
+  <div class='back-this new-pledge' data-reward=<%=reward.id %>>
+    <div class="back-it " >
       <% if current_user %>
         <p>Back this Project!</p>
       <% else %>
@@ -8,7 +8,7 @@
       <% end %>
     </div>
   </div>
-    <div class="rewards-info">
+    <div class="rewards-info" >
       <h3><%= reward.name %> </h3>
       <h3>
         $<%= number_with_delimiter(reward.amount, delimiter: ',') %>
@@ -16,7 +16,5 @@
       <p>
         <%= reward.description %>
       </p>
-
-      <%= link_to "I WANT TO BACK IT!!!!", reward_pledges_path(reward), method: :post, class: "new-pledge" %>
     </div>
 </div>

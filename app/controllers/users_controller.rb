@@ -19,13 +19,13 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(current_user)
+    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(current_user)
+    @user = User.find(params[:id])
     if @user.update_attributes(user_params_edit)
-      redirect_to current_user
+      redirect_to @user
     else
       render :edit
     end
