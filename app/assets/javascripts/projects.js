@@ -21,16 +21,16 @@ $(document).on('ready page:load', function() {
     var current = 0;
 
     function nextBackground() {
-      body.fadeTo('slower', 0.3, function(){
+      body.fadeTo(500, 0.75 , function(){
 
         body.css(
           {'background': 'linear-gradient(180deg, rgba(0,22,60,.5) 3%,rgba(0,22,60,.5) 20%,rgba(0,22,60,.9)60%, rgba(0,0,0,1)100%), ' + backgrounds[current = ++current % backgrounds.length] + ' 50% 50% no-repeat', 'background-size': 'cover'}
         );
 
-          setTimeout(nextBackground, 5000);
-      }).fadeTo('slower', 1)
+          setTimeout(nextBackground, 8000);
+      }).fadeTo(1500, 1)
     }
-    setTimeout(nextBackground, 5000);
+    setTimeout(nextBackground, 8000);
     body.css({'background': 'linear-gradient(180deg, rgba(0,22,60,.5) 3%,rgba(0,22,60,.5) 20%,rgba(0,22,60,.9)60%, rgba(0,0,0,1)100%), ' + backgrounds[0] + ' 50% 50% no-repeat', 'background-size': 'cover'});
 });
 
