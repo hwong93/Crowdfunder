@@ -61,7 +61,7 @@ $(document).on('ready page:load', function() {
 });
 
 // Only on the homepage do this animation
-  if (top.location.pathname === '/'){
+  if (top.location.pathname === '/' || top.location.pathname === '/projects'){
     $(window).on('scroll', function(){
         console.log($(this).scrollTop());
         if ($(this).scrollTop() >= 630){
