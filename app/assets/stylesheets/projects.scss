@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 html {
   box-sizing: border-box;
+  background-color: #FFF7F0;
 }
 
 *,
@@ -12,13 +13,12 @@ html {
 }
 
 body {
-  position: relative;
   margin: 0;
   font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: #FFF7F0
 }
 
 h2{
-
   color: white;
   position: relative;
 }
