@@ -1,17 +1,17 @@
-<div class="nested-fields">
+<div class="nested-fields" id="nested">
   <div id=”rew_name”>
     <%= f.label :name %><br>
-    <%= f.text_field :name, placeholder: "Name of this Reward" %>
+    <%= f.text_field :name, placeholder: "Name of this Reward" ,class: 'form-rew'%>
   </div>
   <div id=”rew_description”>
     <%= f.label :description %><br>
-    <%= f.text_area :description, placeholder: "Description of this Reward" %>
+    <%= f.text_area :description, placeholder: "Description of this Reward", class: 'form-rew'%>
   </div>
   <div id=”rew_amount”>
     <%= f.label :amount %><br>
-    $<%= f.number_field :amount, placeholder: "Cost for Reward" %>
+    <%= f.number_field :amount, placeholder: "Cost for Reward" , class: 'form-rew'%>
   </div>
 
-    <%= link_to_remove_association "remove reward", f %>
+    <%= link_to_remove_association "Remove Reward", f %>
 
 </div>

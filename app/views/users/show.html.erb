@@ -5,7 +5,11 @@
   </div>
   <%= link_to "edit", edit_user_path%>
 
+  <% if current_user.id == @user.id %>
   <h3>Your Projects</h3>
+  <% else %>
+  <h3><%= @user.name %>'s Projects</h3>
+  <% end %>
   <% if @user.owned_projects.any? %>
   <ul class="accordion" data-accordion>
     <% @user.owned_projects.map do |proj|%>
@@ -15,13 +19,13 @@
         </a>
 
         <div class="accordion-content" data-tab-content>
-          <div>
+          <div class="money">
             <%= render partial: 'projects/project_total_money', :locals => {:@project => proj} %>
           </div>
           <div>
-            <h5>Description</h5>
+            <h5>Description:</h5>
             <p><%= proj.description %></p>
-            <h5>End Date</h5>
+            <h5>End Date:</h5>
             <p><%= proj.end_date %></p>
           </div>
 
@@ -39,17 +43,19 @@
   <p>No Projects</p>
   <% end %>
 
-  <h3>REWARDS</h3>
   <% if current_user == @user %>
+  <h3>Your Rewards</h3>
   <% if @user.rewards.any? %>
+  <div class="row">
   <% @user.rewards.map do |rew| %>
-  <div>
-    <%= link_to rew.project.name, project_path(rew.project.id) %>
-    <p><%= rew.name %></p>
-    <p><%= rew.amount %></p>
-    <p><%= rew.description %></p>
-  </div>
+    <div class="large-3 columns show_rewards">
+      <%= link_to rew.project.name, project_path(rew.project.id) %>
+      <p><%= rew.name %></p>
+      <p><%= rew.amount %></p>
+      <p><%= rew.description %></p>
+    </div>
   <% end %>
+</div>
 <% else %>
   <p>NO REWARDS</p>
   <% end %>

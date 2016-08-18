@@ -5,14 +5,6 @@
 
 <h1 id="new-project-title">Let's Get Started in Creating Your New VENTURE!</h1>
 
-<div class="new-space">
-  <li class="dot"></li>
-  <li class="dot"></li>
-  <li class="dot"></li>
-  <li class="dot"></li>
-  <li class="dot"></li>
-</div>
-
 <div class="container">
   <div class="project-form">
     <h2>Project Information</h2>
@@ -33,7 +25,7 @@
     </div>
     <div class="funding-form">
       <%= f.label :funding_goal %><br>
-      $<%= f.number_field :funding_goal, placeholder: "Set Funding Goal - $$$" %>
+      <%= f.number_field :funding_goal, placeholder: "Set Funding Goal - $$$" %>
     </div>
     <div class="end-date-form">
       <%= f.label :end_date %><br>
@@ -59,7 +51,7 @@
     </div>
 
     <div class="new-project-button">
-      <%= f.submit %>
+      <%= f.submit class: 'button success'%>
     </div>
     <% end %>
 
