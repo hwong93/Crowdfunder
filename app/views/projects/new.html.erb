@@ -45,7 +45,7 @@
           <%= f.fields_for :rewards, Reward.new do |reward_fields| %>
             <%= render 'reward_fields', f: reward_fields %>
           <% end %>
-          <%= link_to_add_association 'Add Another Reward', f, :rewards %>
+          <%= link_to_add_association 'Add Another Reward', f, :rewards , class: 'button info'%>
 
       </div>
     </div>

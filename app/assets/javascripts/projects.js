@@ -12,6 +12,28 @@ $(document).on('ready page:load', function() {
   //   $('#nav').addClass('nav');
   // }
 
+
+  $(function () {
+    var body = $('.splash-image');
+    var backgrounds = [
+      'url("assets/image1.jpg")',
+      'url("assets/image2.jpg")'];
+    var current = 0;
+
+    function nextBackground() {
+      body.fadeTo('slower', 0.3, function(){
+
+        body.css(
+          'background', 'linear-gradient(180deg, rgba(0,22,60,.5) 3%,rgba(0,22,60,.5) 20%,rgba(0,22,60,.9)60%, rgba(0,0,0,1)100%), ' +
+          backgrounds[current = ++current % backgrounds.length]) + ' no-repeat inherit';
+
+          setTimeout(nextBackground, 5000);
+      }).fadeTo('slower', 1)
+    }
+    setTimeout(nextBackground, 5000);
+    body.css('background', 'linear-gradient(180deg, rgba(0,22,60,.5) 3%,rgba(0,22,60,.5) 20%,rgba(0,22,60,.9)60%, rgba(0,0,0,1)100%), ' +  backgrounds[0]) + ' no-repeat inherit';
+});
+
   $('#search-form').submit(function(ev) {
     ev.preventDefault();
 
