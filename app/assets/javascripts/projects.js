@@ -16,11 +16,11 @@ $(document).on('ready page:load', function() {
   $(function () {
     var body = $('.splash-image');
     var backgrounds = [
-      'url("assets/image1.jpg")',
-      'url("assets/image2.jpg")',
-      'url("assets/image3.jpg")',
-      'url("assets/image4.jpg")',
-      'url("assets/image5.jpg")'];
+      'url("/assets/image1.jpg")',
+      'url("/assets/image2.jpg")',
+      'url("/assets/image3.jpg")',
+      'url("/assets/image4.jpg")',
+      'url("/assets/image5.jpg")'];
     var current = 0;
 
     function nextBackground() {
