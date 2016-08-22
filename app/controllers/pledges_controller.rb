@@ -1,4 +1,5 @@
 class PledgesController < ApplicationController
+
   def create
     if current_user
       @pledge = current_user.pledges.build(pledge_params)
