@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'discover/index'
+
   get 'login' => 'sessions#new', :as => :login
   post 'create' => 'sessions#create'
   delete 'logout' => 'sessions#destroy', :as => :logout

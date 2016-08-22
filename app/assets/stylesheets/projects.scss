@@ -14,13 +14,23 @@ html {
 
 body {
   margin: 0;
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Nixie One', cursive;
+
+  // font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: #FFF7F0
+}
+a{
+  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 h2{
   color: white;
   position: relative;
+}
+
+h3{
+  color: #2199e8;
+
 }
 
 .container{
@@ -107,9 +117,10 @@ h2{
   margin: 0;
 }
 .detail {
-  -webkit-box-shadow: 0px 2px 10px 0px rgba(58,110,214,1);
-  -moz-box-shadow: 0px 2px 10px 0px rgba(58,110,214,1);
-  box-shadow: 0px 2px 10px 0px rgba(58,110,214,1);
+  // -webkit-box-shadow: 0px 2px 10px 0px rgba(58,110,214,1);
+  // -moz-box-shadow: 0px 2px 10px 0px rgba(58,110,214,1);
+  // box-shadow: 0px 2px 10px 0px rgba(58,110,214,1);
+  border: 1px solid #dddcdb;
   border-radius: 5px;
   background-color: white;
   height: 100%;

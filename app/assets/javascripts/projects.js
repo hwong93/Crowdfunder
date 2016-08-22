@@ -17,21 +17,24 @@ $(document).on('ready page:load', function() {
     var body = $('.splash-image');
     var backgrounds = [
       'url("assets/image1.jpg")',
-      'url("assets/image2.jpg")'];
+      'url("assets/image2.jpg")',
+      'url("assets/image3.jpg")',
+      'url("assets/image4.jpg")',
+      'url("assets/image5.jpg")'];
     var current = 0;
 
     function nextBackground() {
       body.fadeTo(500, 0.75 , function(){
 
         body.css(
-          {'background': 'linear-gradient(180deg, rgba(0,22,60,.5) 3%,rgba(0,22,60,.5) 20%,rgba(0,22,60,.9)60%, rgba(0,0,0,1)100%), ' + backgrounds[current = ++current % backgrounds.length] + ' 50% 50% no-repeat', 'background-size': 'cover'}
+          {'background': backgrounds[current = ++current % backgrounds.length] + ' 50% 50% no-repeat', 'background-size': 'cover'}
         );
 
-          setTimeout(nextBackground, 8000);
+          setTimeout(nextBackground, 7000);
       }).fadeTo(1500, 1)
     }
-    setTimeout(nextBackground, 8000);
-    body.css({'background': 'linear-gradient(180deg, rgba(0,22,60,.5) 3%,rgba(0,22,60,.5) 20%,rgba(0,22,60,.9)60%, rgba(0,0,0,1)100%), ' + backgrounds[0] + ' 50% 50% no-repeat', 'background-size': 'cover'});
+    setTimeout(nextBackground, 7000);
+    body.css({'background': backgrounds[0] + ' 50% 50% no-repeat', 'background-size': 'cover'});
 });
 
   $('#search-form').submit(function(ev) {

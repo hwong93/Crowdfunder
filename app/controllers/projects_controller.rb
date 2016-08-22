@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
     @projects = if params[:search]
       Project.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%")
     else
-      Project.all
+      Project.all.sample(3)
     end
 
     if request.xhr?

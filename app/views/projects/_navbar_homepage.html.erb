@@ -10,6 +10,7 @@
           <% else %>
           <li class="item"><%= link_to 'Create Project', login_path, alert: "Must Log in to Create a Project" %></li>
           <% end %>
+          <li class="item"><%= link_to 'Discover', discover_index_path %> </li>
         <% if current_user %>
           <li class="item"><%= link_to "Profile", user_path(current_user) %></li>
           <li class="item"><%= link_to "Logout", :logout, method: :delete %></li>

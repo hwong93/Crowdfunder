@@ -1,25 +1,52 @@
 <div class="container">
   <h1>Edit Project: <%= @project.name %></h1>
 
-  <p><%= form_for @project do |f| %></p>
-    <% if @project.errors.any? %>
-      <% @project.errors.full_messages.each do |message|%>
-        <li><%= message %></li>
-      <% end %>
-    <% end %>
-
+  <div class="project-form">
     <h2>Project Information</h2>
-    <div class="field">
-      <%= f.label :description %><br>
-      <%= f.text_area :description %>
+    <%= form_for @project do |f| %>
+      <% if @project.errors.any? %>
+        <% @project.errors.full_messages.each do |message|%>
+        <li><%= message %></li>
+        <% end %>
+      <% end %>
+
+    <div class="title-form">
+      <%= f.text_field :name, placeholder: "Project Title" %>
     </div>
-    <div class="field">
+
+    <div class="description-form">
+      <%= f.label :description %><br>
+      <%= f.text_area :description, placeholder: "Description of your project..." %>
+    </div>
+    
+    <div class="funding-form">
+      <%= f.label :funding_goal %><br>
+      <%= f.number_field :funding_goal, placeholder: "Set Funding Goal - $$$" %>
+    </div>
+
+    <div class="media-form">
       <%= f.label :media_url %><br>
       <%= f.text_field :media_url %>
     </div>
 
-    <div class="action">
-      <%= f.submit %>
+
+    <div id="reward-container">
+      <h2>Rewards</h2>
+
+      <div class="rewardForm">
+
+          <%= f.fields_for :rewards, Reward.new do |reward_fields| %>
+            <%= render 'reward_fields', f: reward_fields %>
+          <% end %>
+          <%= link_to_add_association 'Add Another Reward', f, :rewards , class: 'button info'%>
+
+      </div>
     </div>
-  <% end %>
+
+    <div class="new-project-button">
+      <%= f.submit class: 'button success'%>
+    </div>
+    <% end %>
+
+  </div>
 </div>

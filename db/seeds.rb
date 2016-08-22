@@ -48,7 +48,7 @@ Project.create!({
 })
 
 
-reward1 = Reward.create({
+Reward.create({
   name: "Level one",
   description: "basic level",
   amount: 10,
@@ -69,6 +69,47 @@ Reward.create({
   project_id: Project.find_by(name: "Fred's not here").id
 })
 
+Reward.create({
+  name: "Level one",
+  description: "basic level",
+  amount: 10,
+  project_id: Project.find_by(name: "Another").id
+})
+
+Reward.create({
+  name: "Level two",
+  description: "intermediate level",
+  amount: 100,
+  project_id: Project.find_by(name: "Another").id
+})
+
+Reward.create({
+  name: "Level two",
+  description: "expert level",
+  amount: 1000,
+  project_id: Project.find_by(name: "Another").id
+})
+
+Reward.create({
+  name: "Level one",
+  description: "basic level",
+  amount: 10,
+  project_id: Project.find_by(name: "Project 2").id
+})
+
+Reward.create({
+  name: "Level two",
+  description: "intermediate level",
+  amount: 100,
+  project_id: Project.find_by(name: "Project 2").id
+})
+
+Reward.create({
+  name: "Level two",
+  description: "expert level",
+  amount: 1000,
+  project_id: Project.find_by(name: "Project 2").id
+})
 
 
 pledge = Pledge.new({
